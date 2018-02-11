@@ -31,6 +31,37 @@ create table tb_sobre(
 );
 
 
+create table tb_empresa
+(
+	id int not null auto_increment primary key,
+    titulo varchar(200) not null,
+    subtitulo varchar(200) not null,
+    slug varchar(200) not null,
+    palavras_chaves varchar(200) not null,
+    autor varchar(200) not null,
+    descricao longtext not null,
+    imagem varchar(600) not null default 'FILE',
+    direitos varchar(600) not null,
+    link varchar(600) not null,
+    data timestamp not null
+);
+
+create table tb_portifolio
+(
+	id int not null auto_increment primary key,
+    titulo varchar(200) not null,
+    subtitulo varchar(200) not null,
+    slug varchar(200) not null,
+    palavras_chaves varchar(200) not null,
+    autor varchar(200) not null,
+    descricao longtext not null,
+    imagem varchar(600) not null default 'FILE',
+    direitos varchar(600) not null,
+    link varchar(600) not null,
+    data timestamp not null
+);
+
+
 
 create table tb_login(
 	id int not null auto_increment primary key,

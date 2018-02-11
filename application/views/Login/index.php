@@ -1,14 +1,13 @@
-    <div class="row">
-        <div class="col-md-6" style="padding: 5%; ">
+<div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <?= form_open_multipart($c_action) ?>
+                    <?= form_open_multipart($c_action , array('clss' => 'form-inline ')) ?>
                     <?php echo form_error(); ?>
                       <div class="form-group">
                         <?= form_label('Login'); ?>
                         <?= form_input(array(
                               'name' => 'usuario',
-                              'class' => 'form-control',
+                              'class' => 'form-control ',
                               'id' => 'data'
                         )); ?>
                         </div>
@@ -16,7 +15,7 @@
                         <?= form_label('Senha'); ?>
                         <?= form_password(array(
                               'name' => 'senha',
-                              'class' => 'form-control',
+                              'class' => 'form-control ',
                               'id' => 'data'
                         )); ?>
                         </div>
@@ -27,4 +26,3 @@
             </div>
         </div>
     </div>
-</div>

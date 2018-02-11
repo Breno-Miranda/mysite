@@ -1,116 +1,118 @@
-<!DOCTYPE html>
+
+     
+            
+
+
+
+<!doctype html>
 <html lang="pt">
-<head>
-    <script src="<?= base_url('public/site/js/bootstrap.js') ?>"></script>
+  <head>
     <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="<?= base_url('public/site/icon/favicon.ico') ?>">
+
     <title><?= $titulo ?></title>
-    
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?= base_url('public/site/css/bootstrap.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('public/site/css/main.css') ?>" rel="stylesheet">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-    <div class="wrapper">
-        <div class="container">
-            <header>
-                <div class="row">
-                    <div class="navbar">
-                        <div class="navbar-header">
-                            <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="<?= base_url('') ?>">Risol Baby</a>
-                        </div>
 
-                        <div class="collapse navbar-collapse">
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <a href="<?= base_url('sobre') ?>">Sobre</a>
-                                </li>
+    <!-- Bootstrap core CSS -->
+    <link href="<?= base_url('public/site/css/bootstrap.min.css') ?>" rel="stylesheet">
 
-                                <li>
-                                    <a href="<?= base_url('blogs') ?>">Blogs</a>
-                                </li>
+    <!-- Custom styles for this template -->
+    <link href="<?= base_url('public/site/css/product.css') ?>" rel="stylesheet">
+  </head>
 
-                                <li>
-                                    <a href="<?= base_url('redesocial') ?>">Redes Sociais</a>
-                                </li>
+  <body>
 
-                                <li>
-                                    <a href="<?= base_url('contato') ?>">Contato</a>
-                                </li>
-                            </ul>
-
-                            <ul class="nav navbar-nav social">
-                                      <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                      <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                                      <li><a href="#"> <i class="fa fa-github"></i> </a> </li>  
-                                      <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                      <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                            </ul>
-                        </div><!-- /.nav-collapse -->
-                    </div><!-- /.navbar -->
-                </div>
-                
-
-              
-
-            </header>
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
-                  <?php if($this->session->flashdata('flashdata')): ?>
-                    <div class="alert alert-<?= ($this->session->flashdata('flashdata')['status']) ?>" role="alert"><?= ($this->session->flashdata('flashdata')['msm']) ?></div>
-                  <?php endif; ?>
-              </div>
-            </div>
-
-             <div class="container">
-              <div class="col-md-12 col-lg-12">
-                <?php $this->load->view($pagina) ?>
-              </div>
-            </div>
-
-            <div class="row grid-list-wrapper no-gutter-space" id="shots"></div>
-         </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <?php if($this->session->flashdata('flashdata')): ?>
+            <div class="alert alert-<?= ($this->session->flashdata('flashdata')['status']) ?>" role="alert"><?= ($this->session->flashdata('flashdata')['msm']) ?></div>
+            <?php endif; ?>
+        </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <nav class="nav-footer">
-                 <ul>
-                      <li>
-                          <a href="#">Sobre</a>
-                      </li>
 
-                      <li>
-                          <a href="#">Blog</a>
-                      </li>
+    <nav class="site-header sticky-top py-1">
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="<?= base_url('') ?>">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mx-auto"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('conhecer-plataforma') ?>">Tour</a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('servicos') ?>">Serviços</a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('empresa') ?>">Empresas</a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('contato') ?>">Supporte</a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('my-portifolio') ?>">Portifolio</a>
+        <a class="py-2 d-none d-md-inline-block" href="<?= base_url('cliente-login') ?>">Minha Acesso</a>
+      </div>
+    </nav>
 
-                      <li>
-                          <a href="#">Redes</a>
-                      </li>
-
-                      <li>
-                          <a href="#">Contato</a>
-                      </li>
-                  </ul>
-
-                  <ul>
-                      <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                      <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                      <li><a href="#"> <i class="fa fa-github"></i> </a> </li>  
-                      <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                      <li><a href="#"> <i class="fa fa-envelope"></i> </a></li>
-                  </ul>
-
-                <p class="credits text-center">&copy; All Rights Risol baby</p>
-            </nav>
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+        <?php $this->load->view($pagina) ?>
+    </div>
+    
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
+          <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
         </div>
-
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Cool stuff</a></li>
+            <li><a class="text-muted" href="#">Random feature</a></li>
+            <li><a class="text-muted" href="#">Team feature</a></li>
+            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+            <li><a class="text-muted" href="#">Another one</a></li>
+            <li><a class="text-muted" href="#">Last time</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Resource</a></li>
+            <li><a class="text-muted" href="#">Resource name</a></li>
+            <li><a class="text-muted" href="#">Another resource</a></li>
+            <li><a class="text-muted" href="#">Final resource</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Business</a></li>
+            <li><a class="text-muted" href="#">Education</a></li>
+            <li><a class="text-muted" href="#">Government</a></li>
+            <li><a class="text-muted" href="#">Gaming</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Team</a></li>
+            <li><a class="text-muted" href="#">Locations</a></li>
+            <li><a class="text-muted" href="#">Privacy</a></li>
+            <li><a class="text-muted" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
     </footer>
-</body>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="<?= base_url('public/site/js/jquery-3.2.1.slim.min.js') ?>" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="<?= base_url('public/site/js/jquery-slim.min.js') ?>"><\/script>')</script>
+    <script src="<?= base_url('public/site/js/popper.min.js') ?>"></script>
+    <script src="<?= base_url('public/site/js/bootstrap.min.js') ?>"></script>
+    <script src="<?= base_url('public/site/js/holder.min.js') ?>"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
 </html>
