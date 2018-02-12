@@ -62,6 +62,36 @@ create table tb_portifolio
 );
 
 
+create table tb_tour
+(
+	id int not null auto_increment primary key,
+    titulo varchar(200) not null,
+    subtitulo varchar(200) not null,
+    slug varchar(200) not null,
+    palavras_chaves varchar(200) not null,
+    autor varchar(200) not null,
+    descricao longtext not null,
+    imagem varchar(600) not null default 'FILE',
+    direitos varchar(600) not null,
+    link varchar(600) not null,
+    data timestamp not null
+);
+
+create table tb_portifolio
+(
+	id int not null auto_increment primary key,
+    titulo varchar(200) not null,
+    subtitulo varchar(200) not null,
+    slug varchar(200) not null,
+    palavras_chaves varchar(200) not null,
+    autor varchar(200) not null,
+    descricao longtext not null,
+    imagem varchar(600) not null default 'FILE',
+    direitos varchar(600) not null,
+    link varchar(600) not null,
+    data timestamp not null
+);
+
 
 create table tb_login(
 	id int not null auto_increment primary key,
@@ -70,6 +100,16 @@ create table tb_login(
 	senha varchar(200) not null default 'SENHA',
     email varchar(200) not null default 'EMAIL'
 );
+
+
+create table tb_login_dashboard(
+	id int not null auto_increment primary key,
+    slug varchar(200) not null,
+    usuario varchar(200) not null default 'LOGIN',
+	senha varchar(200) not null default 'SENHA',
+    email varchar(200) not null default 'EMAIL'
+);
+
 
 create table tb_modulos(
 	id int not null auto_increment primary key,

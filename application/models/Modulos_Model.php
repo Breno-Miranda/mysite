@@ -158,7 +158,7 @@ class Modulos_Model extends MY_Model{
 				$this->db->where("id ",$date['id']);
 				return $this->db->delete($data['tabela']['tabela']);
 			break;
-			#EXTENSÃO DE METODO DE AUTENTICAÇÃO (LOGIN)
+			#EXTENSÃO DE METODO DE AUTENTICAÇÃO (LOGIN) USUARIOS
 			case 'logar':
 				foreach ($data['campos'] as $campos):
 					if($campos->default == 'LOGIN' ): 
@@ -178,8 +178,8 @@ class Modulos_Model extends MY_Model{
 				endif;
 				return $logar_data;
 			break;
-			#EXTENSÃO DE METODO DE AUTENTICAÇÃO (LOGIN)
-			case 'login':
+			#EXTENSÃO DE METODO DE AUTENTICAÇÃO (LOGIN)  CLIENTES
+			case 'dashboard':
 				foreach ($data['campos'] as $campos):
 					if($campos->default == 'LOGIN' ): 
 					$this->db->where($data['tabela']['tabela'].'.'.$campos->name, $date[$campos->name]);

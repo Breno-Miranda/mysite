@@ -159,11 +159,7 @@ class MY_Controller extends CI_Controller {
     {
         
     }
-    
-    public function ultima_url()
-    {
-        redirect(base_url($_SERVER['REQUEST_URI']));
-    }
+ 
 
     public function permissao( $dados )
     {
