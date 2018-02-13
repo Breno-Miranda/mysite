@@ -14,7 +14,7 @@ function autorizacao_dashboard(){
 		redirect(base_url('clientes/login'));
 	endif;
 }
-
+#extencoes que podem ser modificadas e utilizadas no futuro
 function autorizacao_dashboard_produtos_graficos(){
 	if(!empty($_SESSION['status_dashboard_produtos_graficos'])):
 		else:

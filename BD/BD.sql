@@ -589,7 +589,16 @@ create table tb_Ads(
     data timestamp not null
 );
 
-create table tb_Suporte(
+create table tb_suporte(
+	id int not null auto_increment primary key,
+    slug varchar(200) not null ,
+    link varchar(200) not null ,
+    imagem varchar(600) not null default 'FILE',
+    texto longtext not null,
+    data timestamp not null
+);
+
+create table tb_suporte_dashboard(
 	id int not null auto_increment primary key,
     slug varchar(200) not null ,
     link varchar(200) not null ,

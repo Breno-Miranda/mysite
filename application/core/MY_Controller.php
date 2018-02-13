@@ -114,7 +114,8 @@ class MY_Controller extends CI_Controller {
 			 	$dados_view,
         $config,
         $dados_view_site,
-        $dados_view_padrao
+        $dados_view_padrao,
+        array('c_usuario' => $this->session->userdata('usuario'))
 		));
 
   	}

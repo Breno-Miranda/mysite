@@ -55,7 +55,12 @@ $route['blogs/(:any)'] = 'blogs/view/id/$1/$2/$3';
 $route['politica/(:any)'] = 'politica/view/id/$1/$2/$3';
 
 
+
+#saida de usuario
 $route['painel/sair'] = "painel/site/sair";
+$route['dashboard/sair'] = "dashboard/site/sair";
+
+
 $route['default_controller'] = 'site';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
