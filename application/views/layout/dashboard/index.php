@@ -33,7 +33,7 @@
               <div class="container d-flex flex-column flex-md-row justify-content-between">
                 <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard') ?>">Dashboard</a>
                 <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard/solicitacao') ?>">Solicitações</a>
-                <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard/dashboard/perfil') ?>">Meu Perfil</a>
+                <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard/perfil') ?>">Meu Perfil</a>
                 <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard/suporte') ?>">Supporte</a>
                 <a class="py-2 d-none d-md-inline-block" href="<?= base_url('dashboard/sair') ?>">Sair</a>
               </div>

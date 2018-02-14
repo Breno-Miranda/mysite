@@ -1,9 +1,9 @@
 <?php 
     
-class Suporte extends MY_Controller{
+class Perfil extends MY_Controller{
 
     private $conf = array(
-        'class_artificial' => 'suporte_dashboard'
+        'class_artificial' => 'login_dashboard'
     );
         
     function __construct() 
@@ -26,11 +26,7 @@ class Suporte extends MY_Controller{
             'c_class_pagination' =>
                 array(
                 'c_tabela' => $this->conf['class_artificial']),
-            'c_padrao_dados' => 'dados',
-            'w_query' => $this->MY_Model->query_auto_view(array(
-                'M_tabela' => $this->conf['class_artificial'],
-                'M_type' => 'array',
-            ))
+            'c_padrao_dados' => 'dados'
         ));
 
     }

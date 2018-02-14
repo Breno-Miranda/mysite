@@ -204,7 +204,7 @@ class Site extends MY_Controller{
 
 	public function sair(){
 		unset($_SESSION['status_login']);
-		redirect(BaseController(null));
+		redirect(base_url('cliente/login'));
 	}
 	
 	public function config()

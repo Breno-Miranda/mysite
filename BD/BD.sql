@@ -172,6 +172,8 @@ create table tb_cidade(
 	data timestamp not null
 );
 
+
+
 create table tb_fornecedores(
 	id int not null auto_increment primary key,
     usuario varchar(200) not null default 'LOGIN',
@@ -597,6 +599,19 @@ create table tb_suporte(
     texto longtext not null,
     data timestamp not null
 );
+
+
+create table tb_solicitacao_dashboard(
+	id int not null auto_increment primary key,
+    slug varchar(200) not null ,
+    link varchar(200) not null ,
+    imagem varchar(600) not null default 'FILE',
+    texto longtext not null,
+    status varchar(200) not null ,
+    data timestamp not null
+);
+
+
 
 create table tb_suporte_dashboard(
 	id int not null auto_increment primary key,

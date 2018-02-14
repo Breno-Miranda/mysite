@@ -37,8 +37,5 @@
             <?php endif ?>
         </div>
   </div>
-  <div class="col-4">
-  <?php print_r($w_query); ?>
-  
-  </div>
+  <div class="col-4">col-4</div>
 </div>

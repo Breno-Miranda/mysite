@@ -1,6 +1,9 @@
 <?php 
 class MY_Model extends CI_Model
 {
+	private $conf = array(
+        'prefixo_tb' => 'tb_'
+    );
 
 	public function get_esqueci_senha()
 	{
@@ -46,5 +49,46 @@ class MY_Model extends CI_Model
 		else:
 			return false;
 		endif;
+	}
+
+
+
+	#core database generate query automatica
+
+	public function query_auto_view( Array $dados )
+	{
+		if(!empty( $dados )):
+
+			if(isset($dados['M_id'])):
+
+			endif;
+
+			if(isset($dados['M_pagination'])):
+
+			endif;
+
+			if(isset($dados['M_orderby'])):
+
+			endif;
+
+			if(isset($dados['M_limit'])):
+
+			endif;
+
+			if(isset($dados['M_type']) && $dados['M_type'] === 'array'):
+				return $this->db->get($this->conf['prefixo_tb'].$dados['M_tabela'])->result_array();
+			elseif(isset($dados['M_type']) && $dados['M_type'] === 'row'):
+				return $this->db->get($this->conf['prefixo_tb'].$dados['M_tabela'])->result_array();
+			elseif(isset($dados['M_type']) && $dados['M_type'] === 'num_rows'):
+				return $this->db->get($this->conf['prefixo_tb'].$dados['M_tabela'])->num_rows();
+			endif;
+		else:
+			return FALSE;
+		endif;
+	}
+
+	public function query_auto_select_list()
+	{
+		
 	}
 }

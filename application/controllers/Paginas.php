@@ -41,7 +41,6 @@ class Paginas extends MY_Controller{
                 'c_tabela' => get_class()),
             'c_id_where_paginas' =>  ($this->uri->segment(4)) ? $this->uri->segment(4) : 0
         ));
-
     }
 
 

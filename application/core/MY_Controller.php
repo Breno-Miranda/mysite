@@ -1,6 +1,10 @@
 <?php 
 
 class MY_Controller extends CI_Controller {
+
+    private $conf = array(
+        'prefixo_tb' => 'tb_'
+    );
    
     public function __construct() {
       parent::__construct();
@@ -105,17 +109,15 @@ class MY_Controller extends CI_Controller {
 		);
 
 
-		$this->load->view(
-			$config['c_diretorio'],
-			 array_merge(
-			 	$data,
-			 	$dados,
-			 	$dados['produto'],
-			 	$dados_view,
-        $config,
-        $dados_view_site,
-        $dados_view_padrao,
-        array('c_usuario' => $this->session->userdata('usuario'))
+		$this->load->view($config['c_diretorio'], array_merge(
+            $data,
+            $dados,
+            $dados['produto'],
+            $dados_view,
+            $config,
+            $dados_view_site,
+            $dados_view_padrao,
+            array('c_usuario' => $this->session->userdata('usuario'))
 		));
 
   	}
@@ -196,8 +198,4 @@ class MY_Controller extends CI_Controller {
             return false;
         }
     }
-
-
-
-
 }
