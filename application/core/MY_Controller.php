@@ -17,110 +17,32 @@ class MY_Controller extends CI_Controller {
       $this->load->model('MY_Model');
   	}
 
-  	public function layout( Array $config){
 
-  	$this->pagination($config);
+      public function layout( Array $config){
 
-    if(!empty($config['c_id_where_blogs'])): $dados_view['id_where'] = $config['c_id_where_blogs']; endif;
-	$dados_view['metodo'] = $config['c_metodo'];
-	$dados_view['tabela'] = tabelasBD($config['c_class']);
-	$dados_view['campos'] = $this->Modulos_Model->tabela($dados_view['tabela']);
-	$dados_view['Blogs_static_site_view'] = $this->Modulos_Model->crud($dados_view , null);
+        // echo '<pre>';
+		// 	print_r($config);
 
-    if(!empty($config['c_id_where_paginas'])): $dados_view['id_where'] = $config['c_id_where_paginas']; endif;
-    $dados_view['metodo'] = $config['c_metodo'];
-    $dados_view['tabela'] = tabelasBD($config['c_class']);
-    $dados_view['campos'] = $this->Modulos_Model->tabela($dados_view['tabela']);
-    $dados_view['Videos_static_site_view'] = $this->Modulos_Model->crud($dados_view , null);
-
-    $dados['limit'] = 5; 
-    $dados['metodo'] = $config['c_metodo'];
-    $dados['tabela'] = tabelasBD("blogs");
-    $dados['campos'] = $this->Modulos_Model->tabela($dados['tabela']);
-    $dados['Blogs_static_site_limit'] = $this->Modulos_Model->crud($dados , null);
-
-    $dados['limit'] = 5; 
-    $dados['metodo'] = $config['c_metodo'];
-    $dados['tabela'] = tabelasBD("politica");
-    $dados['campos'] = $this->Modulos_Model->tabela($dados['tabela']);
-    $dados['Politica_static_site_limit'] = $this->Modulos_Model->crud($dados , null);
+  	    $this->pagination($config);
     
-   
-    $dados_view_site['limit'] = 4; 
-    $dados_view_site['order_by'] = 'tb_blogs.id';
-    $dados_view_site['order_by_dados'] = 'desc';
-    $dados_view_site['metodo'] = $config['c_metodo'];
-    $dados_view_site['tabela'] = tabelasBD("blogs");
-    $dados_view_site['campos'] = $this->Modulos_Model->tabela($dados_view_site['tabela']);
-    $dados_view_site['blog_limit_noticias'] = $this->Modulos_Model->crud($dados_view_site , null);
-    
-    
-    $dados['produto']['limit'] = 50;
-    $dados['produto']['order_by'] = 'tb_produtos.id';
-    $dados['produto']['order_by_dados'] = 'desc';
-    $dados['produto']['metodo'] = $config['c_metodo'];
-    $dados['produto']['tabela'] = tabelasBD("produtos");
-    $dados['produto']['campos'] = $this->Modulos_Model->tabela($dados['produto']['tabela']);
-    $dados['produto']['produtos_limits'] = $this->Modulos_Model->crud($dados['produto'], null);
-
-    $dados[$config['c_pagination']] = $this->pagination->create_links();
-    $dados['limit'] = 4; 
-	$dados['metodo'] = $config['c_metodo'];
-	$dados['tabela'] = tabelasBD("blogs");
-	$dados['campos'] = $this->Modulos_Model->tabela($dados['tabela']);
-	$dados['Blogs_static_site'] = $this->Modulos_Model->crud($dados , null);
-
-
-    // Painel 
-    if(isset($config['c_id_where'])):$dados_view_padrao['id_where'] = $config['c_id_where'];  endif;
-    $dados_view_padrao['offset'] = isset($_GET['per_page']) ? $_GET['per_page'] : false;
-    $dados_view_padrao['limit'] = $config['c_limit']; 
-    $dados_view_padrao['metodo'] = $config['c_metodo'];
-    $dados_view_padrao['tabela'] = tabelasBD($config['c_class']);
-    $dados_view_padrao['campos'] = $this->Modulos_Model->tabela($dados_view_padrao['tabela']);
-    $dados_view_padrao['dados_view_padrao'] = $this->Modulos_Model->crud($dados_view_padrao , null);
-
-    
-    // PADRÃO 
-    if(isset($config['c_padrao_dados'])):
-    $dados['offset'] = isset($_GET['per_page']) ? $_GET['per_page'] : false;
-    $dados['limit'] = $config['c_limit']; 
-    $dados['order_by'] ='tb_'. strtolower($config['c_class']).'.id';
-    $dados['metodo'] = $config['c_metodo'];
-    $dados['tabela'] = tabelasBD($config['c_class']);
-    $dados['campos'] = $this->Modulos_Model->tabela($dados['tabela']);
-    $dados[$config['c_padrao_dados']] = $this->Modulos_Model->crud($dados , null);
-    endif;
-
-    foreach($dados['campos'] as $campos_form):
-        if($campos_form->default == 1):
-            $data[$campos_form->name] = $this->Modulos_Model->dropdownMult($campos_form);
-        endif;
-    endforeach;
-
-
-		$data['titulo'] = $this->config->item('titulo').' | '.$config['c_class'];
+        $data['titulo']  = $this->config->item('titulo').' | '.$config['c_class'];
+        $data['logo']    = $this->config->item('logo');
 
 		$data['pagina'] = PaginaView(
 			$config['c_class'], 
 			$config['c_metodo'], 
 			$config['c_diretorio_pagina'], 
-			$config['c_layout']
-		);
-
+            $config['c_layout']
+        );
 
 		$this->load->view($config['c_diretorio'], array_merge(
-            $data,
-            $dados,
-            $dados['produto'],
-            $dados_view,
+            $data, 
             $config,
-            $dados_view_site,
-            $dados_view_padrao,
             array('c_usuario' => $this->session->userdata('usuario'))
 		));
 
   	}
+
 
   	public function pagination($config){
 
@@ -162,7 +84,28 @@ class MY_Controller extends CI_Controller {
     {
         
     }
- 
+
+    public function upload($nomeImagem = null)
+    {
+            $config['upload_path']          = 'uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 0;
+            $config['max_width']            = 0;
+            $config['max_height']           = 0;
+            $config['encrypt_name']         = true;
+
+            $this->upload->initialize($config);
+
+            if ($this->upload->do_upload($nomeImagem)):
+
+            $upload_data = $this->upload->data(); 
+
+            return  array_merge($upload_data , $config);
+
+            else:
+                return false;
+            endif;
+    }
 
     public function permissao( $dados )
     {

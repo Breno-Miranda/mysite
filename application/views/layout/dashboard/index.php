@@ -22,8 +22,8 @@
   <div class="container-fluid cabecalo">
       <div class="container">
         <div class="row">
-          <div class="col">
-            <p>Olá, <strong><?= $c_usuario ?></strong></p>
+          <div class="col-12">
+            <p style="padding:2%" class="text-center">Olá, <strong><?= $c_usuario ?></strong></p>
           </div>
         </div>
       </div>
@@ -41,10 +41,8 @@
       </div>
   </div>
 
-    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-        <?php if($this->session->flashdata('flashdata')): ?>
-        <div class="alert alert-<?= ($this->session->flashdata('flashdata')['class']) ?>" role="alert"><?= ($this->session->flashdata('flashdata')['msm']) ?></div>
-        <?php endif; ?>
+    <div class="container py-5">
+        <?php if($this->session->flashdata('flashdata')): ?><div class="alert alert-<?= ($this->session->flashdata('flashdata')['class']) ?>" role="alert"><?= ($this->session->flashdata('flashdata')['msm']) ?></div><?php endif; ?>
         <?php $this->load->view($pagina) ?>
     </div>
     
@@ -55,46 +53,30 @@
           <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Features</h5>
+          <h5>Pagamento</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Cool stuff</a></li>
-            <li><a class="text-muted" href="#">Random feature</a></li>
-            <li><a class="text-muted" href="#">Team feature</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Another one</a></li>
-            <li><a class="text-muted" href="#">Last time</a></li>
+            <li><a class="text-muted" href="#">Pagar</a></li>
+            <li><a class="text-muted" href="#">Historico de Pagamentos</a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Termos</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-            <li><a class="text-muted" href="#">Another resource</a></li>
-            <li><a class="text-muted" href="#">Final resource</a></li>
+            <li><a class="text-muted" href="#">Termos de Politica</a></li>
+            <li><a class="text-muted" href="#">Termos de licenças</a></li>
+            <li><a class="text-muted" href="#">Resoluções</a></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Sobre mim</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Business</a></li>
-            <li><a class="text-muted" href="#">Education</a></li>
-            <li><a class="text-muted" href="#">Government</a></li>
-            <li><a class="text-muted" href="#">Gaming</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Team</a></li>
-            <li><a class="text-muted" href="#">Locations</a></li>
-            <li><a class="text-muted" href="#">Privacy</a></li>
-            <li><a class="text-muted" href="#">Terms</a></li>
+            <li><a class="text-muted" href="#">Blog</a></li>
+            <li><a class="text-muted" href="#">Minha profissão</a></li>
+            <li><a class="text-muted" href="#">Meus trabalhos</a></li>
           </ul>
         </div>
       </div>
     </footer>
-
 
     <script src="<?= base_url('public/site/js/jquery-3.2.1.slim.min.js') ?>" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="<?= base_url('public/site/js/jquery-slim.min.js') ?>"><\/script>')</script>

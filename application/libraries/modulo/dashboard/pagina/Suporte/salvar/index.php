@@ -1,19 +1,19 @@
 
 <script  src="https://code.jquery.com/jquery-3.2.1.js"  crossorigin="anonymous"></script>
 <script src="<?= base_url('public/js/chosen/chosen.jquery.js')?>"></script>
-
-<div class="main">
-		<?= form_open_multipart($action) ?>
-			<?php foreach ($campos as $resultCampos): ?> 
-				<?php echo form_error($resultCampos->name); ?>
+<div class="main">  
+		<?= form_open_multipart($c_action) ?>
+			<?php foreach ($c_campos as $resultCampos): ?>
+			<?php  foreach($c_campos_not as $resultCamposN): ?>
+				<?php  if($resultCamposN != $resultCampos->name): ?>
 				<div class="form-group">
 				<?php if (
 					$resultCampos->type == "varchar" && 
 					$resultCampos->default != 'FILE' &&
 					$resultCampos->default != 'SENHA'&&
 					$resultCampos->default != 'CHECK'
-					): ?>
-				<?= form_label(_string($resultCampos->name));  ?>
+				):  ?>
+				<?= form_label(_string(str_replace('slug' , $c_replace , $resultCampos->name )));  ?>
 				<?= form_input(array('name'=> $resultCampos->name , 'class' => 'form-control'));  ?>
 				<?php elseif($resultCampos->primary_key == 1): ?>
 				<?php elseif($resultCampos->type == "int" && $resultCampos->default != 1 ): ?>
@@ -31,7 +31,7 @@
 				<?php elseif($resultCampos->default == 1 && $resultCampos->name != "timestamp"): ?>
 					<?= form_label(_string($resultCampos->name));  ?>
 					<?php $campoDrop = strval($resultCampos->name); ?>
-					<?= form_dropdown( array('name' => $resultCampos->name ,'class'=> 'chosen' ), $$campoDrop);  ?>
+					<?= form_dropdown( array('name' => $resultCampos->name ,'class'=> 'form-control chosen' ), $$campoDrop);  ?>
 				<?php elseif($resultCampos->default == 'SENHA' && $resultCampos->name != "timestamp" && $resultCampos->type == "varchar" ): ?>
 					<?= form_label(_string($resultCampos->name));  ?>
 					<?= form_password(array('name'=> $resultCampos->name, 'class' => 'form-control'));  ?>
@@ -49,15 +49,16 @@
 					<?= form_input(array('name'=> $resultCampos->name,'value'=>date("Y-m-d H:i:s") ,'class' => 'form-control'));  ?>
 				<?php endif ?>
 				</div>
+				<?php endif ?>
 			<?php endforeach ?>
+		<?php endforeach ?>
 		<?= form_submit(array('value' => 'Finalizar' , 'class' => 'btn btn-primary pull-right')) ?>
 		<?= form_close() ?>
-</div>
-
+		</div>
+	</div>
 <script>
 	jQuery(document).ready(function(){
 		$(".chosen").chosen({width: "100%"}); 
 	});
 </script>
-
 <link href="http://harvesthq.github.io/chosen/chosen.css" rel="stylesheet"/>
